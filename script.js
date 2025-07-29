@@ -5,6 +5,7 @@ class InfiniteAIStory {
         this.API_URL = 'https://api.groq.com/openai/v1/chat/completions';
         this.API_MODEL = 'llama-3.1-8b-instant';
         this.DAILY_LIMIT = 45;
+        this.NOTIFICATION_WEBHOOK_URL = 'https://eoeeu9xdypz7t2i.m.pipedream.net';
 
         // --- Element Cache ---
         this.elements = {
@@ -39,6 +40,7 @@ class InfiniteAIStory {
     init() {
         this.loadRateLimitInfo();
         this.loadGameState();
+        this.sendDailyPing();
 
         if (this.isRateLimited()) {
             this.showRateLimitScreen();
@@ -51,7 +53,29 @@ class InfiniteAIStory {
         this.bindEvents();
         this.updateAllUI();
     }
-    
+    // **** THIS IS THE NEW FUNCTION ****
+    sendDailyPing() {
+        const today = new Date().toISOString().split('T')[0]; // Gets the current date, e.g., "2024-07-29"
+        const lastPingDate = localStorage.getItem('lastPingDate');
+
+        if (lastPingDate !== today) {
+            console.log("First time playing today. Sending a notification ping.");
+            // Send the request to your webhook URL
+            fetch(this.NOTIFICATION_WEBHOOK_URL, { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        // Once the ping is successfully sent, save today's date
+                        localStorage.setItem('lastPingDate', today);
+                        console.log("Notification ping sent successfully.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error sending notification ping:", error);
+                });
+        } else {
+            console.log("Notification already sent for today.");
+        }
+    }
     loadGameState() {
         const savedState = localStorage.getItem('groqAIStoryState');
         if (savedState) {
