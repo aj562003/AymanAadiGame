@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayman & Aadi: Infinite Love Stories</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <div class="title-section">
+                <h1 class="main-title">AYMAN & AADI</h1>
+                <p class="subtitle">infinite love stories • mysterious adventures • never ending</p>
+            </div>
+            <div class="vibe-indicator">
+                <span id="current-vibe" class="vibe-tag">✨ mystery</span>
+                <span id="romance-meter" class="romance-meter">💕 tension: high</span>
+            </div>
+        </header>
+
+        <div class="game-layout">
+            <div class="story-main">
+                <div class="story-screen">
+                    
+                    <!-- Intro Screen -->
+                    <div id="intro-screen" class="intro-screen">
+                        <div class="character-intro">
+                            <div class="char-grid">
+                                <div class="char-card ayman">
+                                    <div class="char-emoji">👑</div>
+                                    <h3>Ayman</h3>
+                                    <p>main character energy • mysterious past • cat mom</p>
+                                </div>
+                                <div class="char-card aadi">
+                                    <div class="char-emoji">🔥</div>
+                                    <h3>Aadi</h3>
+                                    <p>golden retriever bf • protective • tech wizard</p>
+                                </div>
+                                <div class="char-card snow">
+                                    <div class="char-emoji">❄️</div>
+                                    <h3>Snow</h3>
+                                    <p>chaos cat • sees everything • definitely plotting</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="start-infinite" class="neon-button">start our story</button>
+                    </div>
+
+                    <!-- Story Content Area -->
+                    <div id="story-content" class="story-text" style="display: none;">
+                        <!-- AI story will be loaded here -->
+                    </div>
+                    
+                    <!-- Rate Limit Screen -->
+                    <div id="rate-limit-screen" class="rate-limit-screen" style="display: none;">
+                        <div class="rate-limit-emoji">😴</div>
+                        <h2>Our AI is Dreaming...</h2>
+                        <p>Ayman and Aadi's story has gotten so intense that our AI needs a little nap to dream up what happens next! It's written so much romance and mystery for you today.</p>
+                        <p class="come-back-msg">Your epic story is **safely saved**. Come back tomorrow to continue the adventure!</p>
+                        <div class="cat-signoff">
+                            <span>❄️ Snow agrees. A nap is in order. ❄️</span>
+                        </div>
+                    </div>
+
+                    <!-- Choices Panel -->
+                    <div id="choices-panel" class="choices-panel" style="display: none;">
+                        <div class="choice-header">
+                            <h3>what's the move?</h3>
+                        </div>
+                        <div id="story-choices" class="choices-grid"></div>
+                    </div>
+                </div>
+
+                <div class="story-controls">
+                    <button id="save-moment" class="control-btn">📸 save this moment</button>
+                    <button id="relationship-status" class="control-btn">💕 relationship check</button>
+                    <button id="new-timeline" class="control-btn">🌀 new timeline</button>
+                    <button id="hard-reset" class="control-btn danger">🔥 hard reset</button>
+                </div>
+            </div>
+
+            <div class="story-sidebar">
+                <div class="vibe-tracker">
+                    <h4>current vibe</h4>
+                    <div class="vibe-meters">
+                        <div class="meter-row"><span>mystery</span><div class="meter"><div id="mystery-fill" class="meter-fill"></div></div></div>
+                        <div class="meter-row"><span>romance</span><div class="meter"><div id="romance-fill" class="meter-fill"></div></div></div>
+                        <div class="meter-row"><span>chaos</span><div class="meter"><div id="chaos-fill" class="meter-fill"></div></div></div>
+                        <div class="meter-row"><span>tension</span><div class="meter"><div id="tension-fill" class="meter-fill"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="relationship-tracker">
+                    <h4>ayman & aadi</h4>
+                    <div class="relationship-status">
+                        <div id="couple-status" class="status-display">getting to know each other</div>
+                        <div class="heart-meter"><span id="heart-count">💕</span></div>
+                    </div>
+                </div>
+
+                <div class="memory-bank">
+                    <h4>core memories</h4>
+                    <div id="memory-list" class="memory-scroll">
+                        <p class="memory-hint">your story memories will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="snow-corner">
+                    <h4>snow's thoughts</h4>
+                    <div id="snow-commentary" class="snow-bubble">
+                        *judges you silently while planning world domination*
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="game-footer">
+            <div class="stats-row">
+                <span>stories generated: <span id="story-count">0</span></span>
+                <span>plot twists: <span id="twist-count">0</span></span>
+                <span>romantic moments: <span id="romance-count">0</span></span>
+                <span>snow interruptions: <span id="snow-count">0</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
