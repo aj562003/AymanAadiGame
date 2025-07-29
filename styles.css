@@ -413,10 +413,55 @@ body {
     50% { transform: scale(1.1); }
 }
 
+/* === IMPROVED RESPONSIVE STYLES === */
+@media (max-width: 992px) {
+    .game-layout {
+        grid-template-columns: 1fr; /* Stack layout into a single column on tablets and phones */
+    }
+}
+
 @media (max-width: 768px) {
-    .game-layout { grid-template-columns: 1fr; }
-    .main-title { font-size: 2.5rem; }
-    .char-grid { grid-template-columns: 1fr; }
-    .game-header { flex-direction: column; gap: 15px; text-align: center; }
-    .stats-row { flex-direction: column; gap: 5px; text-align: center; }
+    .container {
+        padding: 10px; /* Reduce padding on small screens */
+    }
+    
+    .game-header {
+        flex-direction: column; /* Stack header items */
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: 2.5rem; /* Reduce title font size */
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .char-grid {
+        grid-template-columns: 1fr; /* Stack character cards */
+    }
+    
+    .story-screen {
+        padding: 20px; /* Reduce padding inside the main story box */
+        min-height: auto;
+    }
+
+    .story-text {
+        font-size: 1.1rem; /* Adjust story font size */
+        min-height: 250px;
+    }
+
+    .story-controls {
+        flex-wrap: wrap; /* Allow control buttons to wrap to the next line */
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .stats-row {
+        flex-direction: column; /* Stack footer stats */
+        gap: 8px;
+        text-align: center;
+    }
 }
